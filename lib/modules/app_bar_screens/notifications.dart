@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../shared/components/components.dart';
 import '../../shared/style/colors.dart';
 import '../../shared/style/styles.dart';
 
@@ -10,32 +10,7 @@ class Notifications extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: myFCFCFCColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        shadowColor: Colors.grey,
-        title: Row(
-          children: [
-            IconButton(
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                size: 21,
-                color: Colors.black,
-              ), // أيقونة مخصصة للـ "pop"
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width / 2,
-              child: Text(
-                'الاشعارات',
-                textAlign: TextAlign.center,
-                style: Styles.textStyle16,
-              ),
-            ),
-          ],
-        ),
-      ),
+      appBar: myAppBar(context: context,title: "الاشعارات"),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
         itemBuilder: (BuildContext context, int index) =>
@@ -44,6 +19,8 @@ class Notifications extends StatelessWidget {
       ),
     );
   }
+
+
 }
 
 class ListViewNotificationItem extends StatelessWidget {

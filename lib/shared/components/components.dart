@@ -1,8 +1,36 @@
 import 'package:flutter/material.dart';
 
-
 import '../style/colors.dart';
 import '../style/styles.dart';
+
+AppBar myAppBar({required BuildContext context, required String title}) {
+  return AppBar(
+    automaticallyImplyLeading: false,
+    shadowColor: Colors.grey,
+    title: Row(
+      children: [
+        IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            size: 21,
+            color: Colors.black,
+          ), // أيقونة مخصصة للـ "pop"
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        SizedBox(
+          width: MediaQuery.of(context).size.width / 2,
+          child: Text(
+            title,
+            textAlign: TextAlign.center,
+            style: Styles.textStyle16,
+          ),
+        ),
+      ],
+    ),
+  );
+}
 
 class MyTextFormField extends StatelessWidget {
   const MyTextFormField({
@@ -47,11 +75,9 @@ class MyTextFormField extends StatelessWidget {
       textAlign: textAlign,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle:
-            Styles.textStyle14.copyWith(color: myCFCFCFColor),
+        labelStyle: Styles.textStyle14.copyWith(color: myCFCFCFColor),
         hintText: hintText,
-        hintStyle:
-            Styles.textStyle14.copyWith(color: myCFCFCFColor),
+        hintStyle: Styles.textStyle14.copyWith(color: myCFCFCFColor),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: myCFCFCFColor, width: 2.0),
         ),
@@ -71,7 +97,7 @@ class MyTextFormField extends StatelessWidget {
               )
             : null,
       ),
-      cursorColor:myColor,
+      cursorColor: myColor,
       obscureText: obscureText,
       validator: validator,
       onFieldSubmitted: onSubmit,
@@ -82,18 +108,29 @@ class MyTextFormField extends StatelessWidget {
 }
 
 class MyButton extends StatelessWidget {
-   const MyButton({
-    super.key, required this.text, required this.onPressed, required this.width, required this.color, this.height,  this.textStyle ,
+  const MyButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    required this.width,
+    required this.color,
+    this.height,
+    this.textStyle,
   });
-  final double width ;
-  final double? height ;
-  final Color? color ;
+
+  final double width;
+
+  final double? height;
+
+  final Color? color;
+
   final String text;
   final TextStyle? textStyle;
   final Function onPressed;
+
   @override
   Widget build(BuildContext context) {
-    return  Center(
+    return Center(
       child: Container(
         width: width,
         height: height,
@@ -107,7 +144,8 @@ class MyButton extends StatelessWidget {
           },
           child: Text(
             text,
-            style: textStyle ?? Styles.textStyle16.copyWith(color: Colors.white),
+            style:
+                textStyle ?? Styles.textStyle16.copyWith(color: Colors.white),
           ),
         ),
       ),
@@ -115,16 +153,16 @@ class MyButton extends StatelessWidget {
   }
 }
 
-
 class MyMaterialButton extends StatelessWidget {
   const MyMaterialButton({
     super.key,
+    required this.onPressed,
   });
-
+final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {},
+      onPressed: onPressed,
       color: myFF5B50Color,
       height: 20,
       minWidth: 25,

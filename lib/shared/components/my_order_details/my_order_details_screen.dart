@@ -119,7 +119,62 @@ class MyOrderDetailsScreen extends StatelessWidget {
                                         fontWeight: FontWeight.normal,
                                       ),
                                     ),
-                                    const MyMaterialButton(),
+                                    MyMaterialButton(
+                                      onPressed: () {
+                                        showDialog(
+                                          context: context,
+                                          builder: (context) => Dialog(
+                                            shape: RoundedRectangleBorder(),
+                                            backgroundColor: Colors.transparent,
+                                            child: Container(
+                                              height: 400,
+                                              width: 200,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(25),
+                                                image: DecorationImage(
+                                                  image: AssetImage(
+                                                      'assets/dialog/Mask Group 11.png'),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                              child: Padding(
+                                                padding: const EdgeInsets.all(30.0),
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Image.asset(
+                                                        'assets/dialog/warning.png'),
+                                                    Text(
+                                                      "يجب تقديم عرض سعر اقل من ",
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "700 ريال",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          color: myColor),
+                                                    ),
+                                                    MyButton(
+                                                      text: 'موافق',
+                                                      onPressed: () {},
+                                                      width: MediaQuery.of(context).size.width * .6,
+                                                      color: myBlackColor,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
                                   ],
                                 ),
                               ],
@@ -209,7 +264,32 @@ class MyOrderDetailsScreen extends StatelessWidget {
                                         ),
                                       ),
                                       MaterialButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          showDialog<String>(
+                                            context: context,
+                                            builder: (BuildContext context) =>
+                                                AlertDialog(
+                                              title: const Text(
+                                                  'AlertDialog Title'),
+                                              content: const Text(
+                                                  'AlertDialog description'),
+                                              actions: <Widget>[
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          context, 'Cancel'),
+                                                  child: const Text('Cancel'),
+                                                ),
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          context, 'OK'),
+                                                  child: const Text('OK'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
                                         color: myFF5B50Color,
                                         height: 20,
                                         minWidth: 25,
@@ -248,7 +328,9 @@ class MyOrderDetailsScreen extends StatelessWidget {
                               Transform.rotate(
                                   angle: 3.14,
                                   child: IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
                                     icon: const Icon(
                                       Icons.arrow_forward,
                                       color: Colors.white,

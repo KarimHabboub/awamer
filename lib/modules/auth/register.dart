@@ -7,7 +7,7 @@ import '../../shared/style/colors.dart';
 import '../../shared/style/styles.dart';
 
 class Register extends StatelessWidget {
-   Register({Key? key}) : super(key: key);
+  Register({Key? key}) : super(key: key);
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -24,10 +24,8 @@ class Register extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Center(
-          child: Text(
-            'تسجيل حساب جديد',
-            style: Styles.textStyle16.copyWith(color: Colors.black)
-          ),
+          child: Text('تسجيل حساب جديد',
+              style: Styles.textStyle16.copyWith(color: Colors.black)),
         ),
         leading: IconButton(
           icon: Transform.rotate(
@@ -49,9 +47,7 @@ class Register extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("الاسم",
-                  style: Styles.textStyle16
-                  ),
+              Text("الاسم", style: Styles.textStyle16),
               MyTextFormField(
                 textControl: nameController,
                 keyboardType: TextInputType.text,
@@ -65,9 +61,7 @@ class Register extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 20),
-              Text("البريد الإلكتروني",
-                  style: Styles.textStyle16
-              ),
+              Text("البريد الإلكتروني", style: Styles.textStyle16),
               MyTextFormField(
                 textControl: emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -81,9 +75,7 @@ class Register extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 20),
-              Text("رقم الهاتف",
-                  style: Styles.textStyle16
-              ),
+              Text("رقم الهاتف", style: Styles.textStyle16),
               MyTextFormField(
                 textControl: phoneController,
                 keyboardType: TextInputType.phone,
@@ -97,9 +89,7 @@ class Register extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 20),
-              Text("كلمة المرور",
-                  style: Styles.textStyle16
-              ),
+              Text("كلمة المرور", style: Styles.textStyle16),
               MyTextFormField(
                 textControl: passwordController,
                 keyboardType: TextInputType.visiblePassword,
@@ -114,9 +104,7 @@ class Register extends StatelessWidget {
                 suffix: Icons.remove_red_eye,
               ),
               const SizedBox(height: 20),
-              Text("تاكيد كلمة المرور",
-                  style: Styles.textStyle16
-              ),
+              Text("تاكيد كلمة المرور", style: Styles.textStyle16),
               MyTextFormField(
                 textControl: passwordController2,
                 keyboardType: TextInputType.visiblePassword,
@@ -140,10 +128,10 @@ class Register extends StatelessWidget {
               Center(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushAndRemoveUntil(context,
-                        MaterialPageRoute(
-                            builder: (context)=> LoginScreen()),
-                    (route) => false);
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        (route) => false);
                   },
                   child: RichText(
                     text: TextSpan(

@@ -1,3 +1,4 @@
+import 'package:awamer/modules/order_details/current_order_details.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../shared/style/colors.dart';
@@ -34,110 +35,118 @@ class ListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-     vertical: 12,
-        horizontal: 28,
-      ),
-      child: SizedBox(
-        height: 200,
-        width: double.infinity,
-        child: Stack(
-          children: [
-            Container(
-              height: 200,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: myBlackColor,
-              ),
-            ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: CachedNetworkImage(
-                height: 150,
+    return InkWell(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => CurrentOrderDetails()));
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 12,
+          horizontal: 28,
+        ),
+        child: SizedBox(
+          height: 200,
+          width: double.infinity,
+          child: Stack(
+            children: [
+              Container(
+                height: 200,
                 width: double.infinity,
-                fit: BoxFit.cover,
-                imageUrl:
-                    'https://img.freepik.com/free-photo/handsome-carpenter-working-with-wood_1157-26134.jpg?w=900&t=st=1690462383~exp=1690462983~hmac=fe6b87d10b9a6bd2045ca58402959e68989fefc522fb4e70b531c01ddb5efa27',
-                errorWidget: (context, url, error) =>
-                    const Center(child: Icon(Icons.error)),
-              ),
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Row(
-                    children: [
-                      Text(
-                        "عدد العروض  ",
-                        style: Styles.textStyle14.copyWith(color: Colors.white),
-                      ),
-                      Text(
-                        "15",
-                        style: Styles.textStyle14.copyWith(color: Colors.white),
-                      ),
-                      const Spacer(),
-                      if (withFavorite)
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.favorite,
-                            color: myColor,
-                          ),
-                        )
-                    ],
-                  ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: myBlackColor,
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.baseline,
-                        textBaseline: TextBaseline.alphabetic,
-                        children: [
-                          Expanded(
-                            child: Text(
-                              "أوامر التنفيذ الحرفي",
-                              textAlign: TextAlign.center,
-                              style: Styles.textStyle14
-                                  .copyWith(color: Colors.white),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: CachedNetworkImage(
+                  height: 150,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  imageUrl:
+                      'https://img.freepik.com/free-photo/handsome-carpenter-working-with-wood_1157-26134.jpg?w=900&t=st=1690462383~exp=1690462983~hmac=fe6b87d10b9a6bd2045ca58402959e68989fefc522fb4e70b531c01ddb5efa27',
+                  errorWidget: (context, url, error) =>
+                      const Center(child: Icon(Icons.error)),
+                ),
+              ),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "عدد العروض  ",
+                          style:
+                              Styles.textStyle14.copyWith(color: Colors.white),
+                        ),
+                        Text(
+                          "15",
+                          style:
+                              Styles.textStyle14.copyWith(color: Colors.white),
+                        ),
+                        const Spacer(),
+                        if (withFavorite)
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.favorite,
+                              color: myColor,
                             ),
-                          ),
-                          Expanded(
-                            child: Text(
-                              "نجارة خزانة",
-                              textAlign: TextAlign.center,
-                              style: Styles.textStyle14
-                                  .copyWith(color: Colors.white),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
+                          )
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                "أوامر التنفيذ الحرفي",
+                                textAlign: TextAlign.center,
+                                style: Styles.textStyle14
+                                    .copyWith(color: Colors.white),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
-                          ),
-                          Expanded(
-                            child: Text(
-                              "8/10/2021",
-                              textAlign: TextAlign.center,
-                              style: Styles.textStyle14
-                                  .copyWith(color: Colors.white),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
+                            Expanded(
+                              child: Text(
+                                "نجارة خزانة",
+                                textAlign: TextAlign.center,
+                                style: Styles.textStyle14
+                                    .copyWith(color: Colors.white),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
-                          ),
-                        ],
+                            Expanded(
+                              child: Text(
+                                "8/10/2021",
+                                textAlign: TextAlign.center,
+                                style: Styles.textStyle14
+                                    .copyWith(color: Colors.white),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            )
-          ],
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
