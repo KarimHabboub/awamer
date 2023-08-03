@@ -2,9 +2,9 @@ import 'package:awamer/layout/cubit/states.dart';
 import 'package:awamer/modules/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../modules/add_order.dart';
 import '../../modules/my_requests.dart';
+
 class HomeCubit extends Cubit<HomeStates>{
   HomeCubit() : super(InitHomeState());
 

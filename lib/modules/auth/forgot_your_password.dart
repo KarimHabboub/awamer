@@ -47,7 +47,7 @@ class ForgotYourPassword extends StatelessWidget {
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width/2,
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               "نسيت كلمة المرور",
                               textAlign: TextAlign.center,
@@ -66,13 +66,13 @@ class ForgotYourPassword extends StatelessWidget {
                       padding:  EdgeInsets.symmetric(
                           horizontal: MediaQuery.of(context).size.width * .15
                       ),
-                      child: Text(
+                      child: const Text(
                       "قم بإدخال عنوان بريدك الإلكتروني لتلقي التعليمات من أجل إعادة ضبط كلمة المرور",
                         style: Styles.textStyle16,
                       ),
                     ),
                     const SizedBox(height: 40),
-                    Align(
+                    const Align(
                       alignment: Alignment.centerRight,
                       child: Text("البريد الإلكتروني",
                           style: Styles.textStyle16,

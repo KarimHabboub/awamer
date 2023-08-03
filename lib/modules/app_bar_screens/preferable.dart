@@ -1,12 +1,11 @@
 import 'package:awamer/layout/cubit/cubit.dart';
 import 'package:awamer/layout/cubit/states.dart';
 import 'package:awamer/layout/widget/list_view.dart';
+import 'package:awamer/modules/app_bar_screens/filter.dart';
 import 'package:awamer/shared/style/colors.dart';
 import 'package:awamer/shared/style/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../layout/widget/body_show_bottom_sheet.dart';
 import '../../shared/style/icon_broken.dart';
 
 class Preferable extends StatelessWidget {
@@ -46,7 +45,7 @@ class Preferable extends StatelessWidget {
                         top: Radius.circular(25.0),
                       )),
                       builder: (BuildContext context) {
-                        return BodyShowBottomSheet(
+                        return Filter(
                           cubit: cubit,
                         );
                       },
@@ -58,7 +57,7 @@ class Preferable extends StatelessWidget {
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 2,
-                  child: Text(
+                  child: const Text(
                     'المفضلة',
                     textAlign: TextAlign.center,
                     style: Styles.textStyle16,

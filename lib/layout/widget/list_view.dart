@@ -38,7 +38,7 @@ class ListViewItem extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => CurrentOrderDetails()));
+            MaterialPageRoute(builder: (context) => const CurrentOrderDetails()));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -90,7 +90,7 @@ class ListViewItem extends StatelessWidget {
                         if (withFavorite)
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.favorite,
                               color: myColor,
                             ),
@@ -205,7 +205,7 @@ class ListViewErrorItem extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      Icon(
+                      const Icon(
                         IconBroken.Heart,
                         color: myC3C5CEErrorColor,
                       ),

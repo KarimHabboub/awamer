@@ -1,7 +1,7 @@
 import 'package:awamer/layout/cubit/cubit.dart';
 import 'package:awamer/layout/cubit/states.dart';
-import 'package:awamer/layout/widget/body_show_bottom_sheet.dart';
 import 'package:awamer/layout/widget/bottom_Navigation_Bar.dart';
+import 'package:awamer/modules/app_bar_screens/filter.dart';
 import 'package:awamer/modules/app_bar_screens/preferable.dart';
 import 'package:awamer/shared/style/icon_broken.dart';
 import 'package:flutter/material.dart';
@@ -41,12 +41,12 @@ class HomeLayout extends StatelessWidget {
                         showModalBottomSheet<void>(
                           context: context,
                           isScrollControlled: true,
-                        shape: const RoundedRectangleBorder( // <-- SEE HERE
+                        shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.vertical(
                         top: Radius.circular(25.0),
                         )),
                           builder: (BuildContext context) {
-                            return BodyShowBottomSheet(
+                            return Filter(
                               cubit:cubit,
                             );
                           },

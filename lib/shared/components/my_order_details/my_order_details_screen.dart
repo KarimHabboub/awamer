@@ -1,6 +1,5 @@
 import 'package:awamer/shared/components/my_order_details/widgets/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
 import '../../../modules/order_details/cubit/cubit.dart';
 import '../../style/colors.dart';
 import '../../style/styles.dart';
@@ -54,7 +53,7 @@ class MyOrderDetailsScreen extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Expanded(
+                                const Expanded(
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -100,10 +99,10 @@ class MyOrderDetailsScreen extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     InkWell(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5),
+                                      child: const Padding(
+                                        padding: EdgeInsets.all(5),
                                         child: Icon(
-                                          const IconData(
+                                          IconData(
                                             0xe528,
                                             fontFamily: 'MaterialIcons',
                                           ),
@@ -121,57 +120,11 @@ class MyOrderDetailsScreen extends StatelessWidget {
                                     ),
                                     MyMaterialButton(
                                       onPressed: () {
-                                        showDialog(
+                                        myDialogWitheTextFormField(
                                           context: context,
-                                          builder: (context) => Dialog(
-                                            shape: RoundedRectangleBorder(),
-                                            backgroundColor: Colors.transparent,
-                                            child: Container(
-                                              height: 400,
-                                              width: 200,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(25),
-                                                image: DecorationImage(
-                                                  image: AssetImage(
-                                                      'assets/dialog/Mask Group 11.png'),
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                              child: Padding(
-                                                padding: const EdgeInsets.all(30.0),
-                                                child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.spaceBetween,
-                                                  children: [
-                                                    Image.asset(
-                                                        'assets/dialog/warning.png'),
-                                                    Text(
-                                                      "يجب تقديم عرض سعر اقل من ",
-                                                      style: TextStyle(
-                                                        fontSize: 18,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      "700 ريال",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          color: myColor),
-                                                    ),
-                                                    MyButton(
-                                                      text: 'موافق',
-                                                      onPressed: () {},
-                                                      width: MediaQuery.of(context).size.width * .6,
-                                                      color: myBlackColor,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
+                                          title: "الإبلاغ عن الامر",
+                                          assetImage:
+                                              "assets/dialog/warning.png",
                                         );
                                       },
                                     ),
@@ -194,7 +147,7 @@ class MyOrderDetailsScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  Expanded(
+                                  const Expanded(
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -244,10 +197,10 @@ class MyOrderDetailsScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       InkWell(
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(5),
+                                        child: const Padding(
+                                          padding: EdgeInsets.all(5),
                                           child: Icon(
-                                            const IconData(
+                                            IconData(
                                               0xe528,
                                               fontFamily: 'MaterialIcons',
                                             ),
@@ -265,29 +218,11 @@ class MyOrderDetailsScreen extends StatelessWidget {
                                       ),
                                       MaterialButton(
                                         onPressed: () {
-                                          showDialog<String>(
+                                          myDialogWitheTextFormField(
                                             context: context,
-                                            builder: (BuildContext context) =>
-                                                AlertDialog(
-                                              title: const Text(
-                                                  'AlertDialog Title'),
-                                              content: const Text(
-                                                  'AlertDialog description'),
-                                              actions: <Widget>[
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          context, 'Cancel'),
-                                                  child: const Text('Cancel'),
-                                                ),
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          context, 'OK'),
-                                                  child: const Text('OK'),
-                                                ),
-                                              ],
-                                            ),
+                                            title: "الإبلاغ عن الامر",
+                                            assetImage:
+                                            "assets/dialog/warning.png",
                                           );
                                         },
                                         color: myFF5B50Color,
@@ -339,7 +274,7 @@ class MyOrderDetailsScreen extends StatelessWidget {
                                   )),
                               IconButton(
                                   onPressed: () {},
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.favorite,
                                     color: my66696AColor,
                                     size: 28,
@@ -361,7 +296,7 @@ class MyOrderDetailsScreen extends StatelessWidget {
                                   )),
                               IconButton(
                                 onPressed: () {},
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.favorite,
                                   color: my66696AColor,
                                   size: 28,
@@ -388,7 +323,7 @@ class MyOrderDetailsScreen extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.arrow_right_rounded,
                               size: 40,
                               color: myColor,
@@ -408,7 +343,7 @@ class MyOrderDetailsScreen extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.arrow_right_rounded,
                               size: 40,
                               color: myColor,
@@ -428,7 +363,7 @@ class MyOrderDetailsScreen extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.arrow_right_rounded,
                               size: 40,
                               color: myColor,
@@ -448,7 +383,7 @@ class MyOrderDetailsScreen extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.arrow_right_rounded,
                               size: 40,
                               color: myColor,
@@ -468,7 +403,7 @@ class MyOrderDetailsScreen extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.arrow_right_rounded,
                               size: 40,
                               color: myColor,
@@ -488,7 +423,7 @@ class MyOrderDetailsScreen extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.arrow_right_rounded,
                               size: 40,
                               color: myColor,
@@ -508,7 +443,7 @@ class MyOrderDetailsScreen extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.arrow_right_rounded,
                               size: 40,
                               color: myColor,
@@ -528,7 +463,7 @@ class MyOrderDetailsScreen extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.arrow_right_rounded,
                               size: 40,
                               color: myColor,

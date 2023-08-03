@@ -50,7 +50,7 @@ class Verification extends StatelessWidget {
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width/2,
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               "رمز التحقق",
                               textAlign: TextAlign.center,
@@ -64,12 +64,12 @@ class Verification extends StatelessWidget {
                     const Image(
                       image: AssetImage("assets/login/Group 115636.png"),
                     ),
-                    Text(
+                    const Text(
                       "ادخل رمز التحقق المرسل إلى جوال رقم",
                       style: Styles.textStyle16,
                     ),
                     const SizedBox(height: 17),
-                    Text(
+                    const Text(
                       "+996 123 456 789",
                       style: Styles.textStyle16,
                     ),

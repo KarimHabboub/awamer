@@ -1,7 +1,5 @@
 import 'package:awamer/modules/auth/login.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
 import '../../shared/components/components.dart';
 import '../../shared/style/colors.dart';
 import '../../shared/style/styles.dart';

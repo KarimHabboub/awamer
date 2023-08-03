@@ -32,6 +32,139 @@ AppBar myAppBar({required BuildContext context, required String title}) {
   );
 }
 
+Future<dynamic> myDialog(
+    {required BuildContext context, required String assetImage, String? body}) {
+  return showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      shape: const RoundedRectangleBorder(),
+      backgroundColor: Colors.transparent,
+      child: Container(
+        height: 400,
+        width: 200,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          image: const DecorationImage(
+            image: AssetImage('assets/dialog/Mask Group 11.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset('assets/dialog/warning.png'),
+              const Text(
+                "يجب تقديم عرض سعر اقل من ",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+              Text(
+                body ?? "",
+                style: TextStyle(fontWeight: FontWeight.normal, color: myColor),
+              ),
+              MyButton(
+                text: 'موافق',
+                onPressed: () {},
+                width: MediaQuery.of(context).size.width * .6,
+                color: myBlackColor,
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+Future<dynamic> myDialogWitheTextFormField(
+    {required BuildContext context,
+    required String assetImage,
+    required String title}) {
+  return showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      shape: const RoundedRectangleBorder(),
+      backgroundColor: Colors.transparent,
+
+      content: Container(
+        height: MediaQuery.of(context).size.height *.39,
+        width: MediaQuery.of(context).size.width *.7,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          image: const DecorationImage(
+            image: AssetImage('assets/dialog/Mask Group 11.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 30.0,horizontal: 20),
+          child: Column(
+            children: [
+              Image.asset(
+                assetImage,
+              ),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
+                  color: myColor,
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Colors.grey,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+
+                    ),
+                    child: TextFormField(
+                      maxLines: null,
+                      autovalidateMode: AutovalidateMode.always,
+                      decoration: InputDecoration(
+                        border: InputBorder.none
+
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  MyButton(
+                    text: 'ابلاغ',
+                    onPressed: () {},
+                    width: MediaQuery.of(context).size.width /4,
+                    color: myFF5B50Color,
+                  ),
+                  MyButton(
+                    text: 'الغاء',
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    width: MediaQuery.of(context).size.width /4,
+                    color: myBlackColor,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
 class MyTextFormField extends StatelessWidget {
   const MyTextFormField({
     super.key,
@@ -158,7 +291,9 @@ class MyMaterialButton extends StatelessWidget {
     super.key,
     required this.onPressed,
   });
-final void Function()? onPressed;
+
+  final void Function()? onPressed;
+
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
