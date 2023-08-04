@@ -13,6 +13,7 @@ const Color myFF5B50Color = Color(0xFFFF5B50);
 const Color my66696AColor = Color(0xFF66696A);
 const Color myDEDEDEColor = Color(0xFFDEDEDE);
 const Color myFFFFFFColor = Color(0xFFFFFFFF);
+const Color my707070Color = Color(0xFF707070);
 //Error item
 const Color myC3C5CEErrorColor = Color(0xFFC3C5CE);
 const Color myE7E7E7ErrorColor = Color(0xFFE7E7E7);

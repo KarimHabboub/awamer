@@ -137,19 +137,25 @@ Future<dynamic> myDialogWitheTextFormField(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Expanded(
-                    child: MyButton(
-                      text: 'ابلاغ',
-                      onPressed: () {},
-                      color: myFF5B50Color,
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: MyButton(
+                        text: 'ابلاغ',
+                        onPressed: () {},
+                        color: myFF5B50Color,
+                      ),
                     ),
                   ),
                   Expanded(
-                    child: MyButton(
-                      text: 'الغاء',
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      color: myBlackColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: MyButton(
+                        text: 'الغاء',
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        color: myBlackColor,
+                      ),
                     ),
                   ),
                 ],
@@ -260,23 +266,21 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: color,
-        ),
-        child: MaterialButton(
-          onPressed: () {
-            onPressed();
-          },
-          child: Text(
-            text,
-            style:
-                textStyle ?? Styles.textStyle16.copyWith(color: Colors.white),
-          ),
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: color,
+      ),
+      child: MaterialButton(
+        onPressed: () {
+          onPressed();
+        },
+        child: Text(
+          text,
+          style:
+              textStyle ?? Styles.textStyle16.copyWith(color: Colors.white),
         ),
       ),
     );

@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
                 elevation: 1.2,
                 shadowColor: Colors.grey,
                 iconTheme: IconThemeData(color: Colors.black, size: 30))),
-        home: const HomeLayout(),
+        home:  HomeLayout(),
       ),
     );
   }
