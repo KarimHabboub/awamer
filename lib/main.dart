@@ -7,12 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'layout/home_layout.dart';
-import 'modules/auth/forgot_your_password.dart';
-import 'modules/auth/login.dart';
-import 'modules/auth/splash_screen.dart';
-import 'modules/auth/verification.dart';
-import 'modules/order_details/current_order_details.dart';
-import 'modules/app_bar_screens/filter.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -61,7 +56,7 @@ class MyApp extends StatelessWidget {
                 elevation: 1.2,
                 shadowColor: Colors.grey,
                 iconTheme: IconThemeData(color: Colors.black, size: 30))),
-        home: HomeLayout(),
+        home: const HomeLayout(),
       ),
     );
   }
