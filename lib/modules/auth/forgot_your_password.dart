@@ -5,13 +5,13 @@ import '../../shared/style/colors.dart';
 import '../../shared/style/styles.dart';
 
 class ForgotYourPassword extends StatelessWidget {
-   ForgotYourPassword({Key? key}) : super(key: key);
+  ForgotYourPassword({Key? key}) : super(key: key);
 
   final TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: myBackgroundColor,
       body: Stack(
         children: [
@@ -27,7 +27,7 @@ class ForgotYourPassword extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: SingleChildScrollView(
-                physics:  const BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,7 +46,7 @@ class ForgotYourPassword extends StatelessWidget {
                           },
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width/2,
+                          width: MediaQuery.of(context).size.width / 2,
                           child: const Center(
                             child: Text(
                               "نسيت كلمة المرور",
@@ -63,20 +63,19 @@ class ForgotYourPassword extends StatelessWidget {
                     ),
                     const SizedBox(height: 40),
                     Padding(
-                      padding:  EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width * .15
-                      ),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width * .15),
                       child: const Text(
-                      "قم بإدخال عنوان بريدك الإلكتروني لتلقي التعليمات من أجل إعادة ضبط كلمة المرور",
+                        "قم بإدخال عنوان بريدك الإلكتروني لتلقي التعليمات من أجل إعادة ضبط كلمة المرور",
                         style: Styles.textStyle16,
                       ),
                     ),
                     const SizedBox(height: 40),
                     const Align(
                       alignment: Alignment.centerRight,
-                      child: Text("البريد الإلكتروني",
-                          style: Styles.textStyle16,
-
+                      child: Text(
+                        "البريد الإلكتروني",
+                        style: Styles.textStyle16,
                       ),
                     ),
                     MyTextFormField(
@@ -98,8 +97,6 @@ class ForgotYourPassword extends StatelessWidget {
                       onPressed: () {},
                       color: myColor,
                     ),
-
-
                   ],
                 ),
               ),

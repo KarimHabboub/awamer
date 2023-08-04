@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../style/colors.dart';
 import '../style/styles.dart';
 
@@ -64,7 +63,7 @@ Future<dynamic> myDialog(
               ),
               Text(
                 body ?? "",
-                style: TextStyle(fontWeight: FontWeight.normal, color: myColor),
+                style: const TextStyle(fontWeight: FontWeight.normal, color: myColor),
               ),
               MyButton(
                 text: 'موافق',
@@ -89,10 +88,10 @@ Future<dynamic> myDialogWitheTextFormField(
     builder: (context) => AlertDialog(
       shape: const RoundedRectangleBorder(),
       backgroundColor: Colors.transparent,
-
+      scrollable: true,
       content: Container(
-        height: MediaQuery.of(context).size.height *.39,
-        width: MediaQuery.of(context).size.width *.7,
+        height: MediaQuery.of(context).orientation == Orientation.portrait? MediaQuery.of(context).size.height *.5:MediaQuery.of(context).size.height ,
+        width: MediaQuery.of(context).orientation == Orientation.portrait?MediaQuery.of(context).size.width : MediaQuery.of(context).size.width *.5,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           image: const DecorationImage(
@@ -101,7 +100,7 @@ Future<dynamic> myDialogWitheTextFormField(
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 30.0,horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 20),
           child: Column(
             children: [
               Image.asset(
@@ -125,15 +124,11 @@ Future<dynamic> myDialogWitheTextFormField(
                         color: Colors.grey,
                       ),
                       borderRadius: BorderRadius.circular(15),
-
                     ),
                     child: TextFormField(
                       maxLines: null,
                       autovalidateMode: AutovalidateMode.always,
-                      decoration: InputDecoration(
-                        border: InputBorder.none
-
-                      ),
+                      decoration: const InputDecoration(border: InputBorder.none),
                     ),
                   ),
                 ),
@@ -141,19 +136,21 @@ Future<dynamic> myDialogWitheTextFormField(
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  MyButton(
-                    text: 'ابلاغ',
-                    onPressed: () {},
-                    width: MediaQuery.of(context).size.width /4,
-                    color: myFF5B50Color,
+                  Expanded(
+                    child: MyButton(
+                      text: 'ابلاغ',
+                      onPressed: () {},
+                      color: myFF5B50Color,
+                    ),
                   ),
-                  MyButton(
-                    text: 'الغاء',
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    width: MediaQuery.of(context).size.width /4,
-                    color: myBlackColor,
+                  Expanded(
+                    child: MyButton(
+                      text: 'الغاء',
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      color: myBlackColor,
+                    ),
                   ),
                 ],
               ),
@@ -211,7 +208,7 @@ class MyTextFormField extends StatelessWidget {
         labelStyle: Styles.textStyle14.copyWith(color: myCFCFCFColor),
         hintText: hintText,
         hintStyle: Styles.textStyle14.copyWith(color: myCFCFCFColor),
-        enabledBorder: UnderlineInputBorder(
+        enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(color: myCFCFCFColor, width: 2.0),
         ),
         focusedBorder: UnderlineInputBorder(
@@ -245,13 +242,13 @@ class MyButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
-    required this.width,
     required this.color,
     this.height,
+    this.width,
     this.textStyle,
   });
 
-  final double width;
+  final double? width;
 
   final double? height;
 
@@ -301,6 +298,7 @@ class MyMaterialButton extends StatelessWidget {
       color: myFF5B50Color,
       height: 20,
       minWidth: 25,
+
       child: const Text(
         "إبلاغ",
         style: TextStyle(

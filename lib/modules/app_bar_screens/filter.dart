@@ -2,15 +2,18 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 import '../../layout/cubit/cubit.dart';
+import '../../shared/components/top_bottom_sheet.dart';
 import '../../shared/style/colors.dart';
 import '../../shared/style/styles.dart';
+
 enum SingingCharacter { lafayette, jefferson }
 
 class Filter extends StatelessWidget {
   const Filter({
     super.key,
     required this.cubit,
-  }) ;
+  });
+
   final HomeCubit cubit;
   final SingingCharacter _character = SingingCharacter.lafayette;
 
@@ -22,35 +25,19 @@ class Filter extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(30.0),
           child: SingleChildScrollView(
-            physics:const BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment:CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 10,
-                      width: 110,
-                      decoration: BoxDecoration(
-                        borderRadius:
-                        BorderRadius.circular(20),
-                        color: myBlackColor,
-                      ),
-                    ),
-                  ],
-                ),
+                const TopBottomSheet(),
                 const SizedBox(height: 30),
                 Text(
                   'المدينة',
-                  style: Styles.textStyle16
-                      .copyWith(color: myColor),
+                  style: Styles.textStyle16.copyWith(color: myColor),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Center(
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton2<String>(
@@ -60,32 +47,27 @@ class Filter extends StatelessWidget {
                             Expanded(
                               child: Text(
                                 cubit.selectedValue ?? '',
-                                style: Styles.textStyle16
-                                    .copyWith(
-                                    color:
-                                    myDEDEDEColor),
-                                overflow:
-                                TextOverflow.ellipsis,
+                                style: Styles.textStyle16.copyWith(
+                                  color: myDEDEDEColor,
+                                ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
                         ),
-                        items: cubit.items.map((String item) =>
-                            DropdownMenuItem<String>(
-                              value: item,
-                              child: Text(
-                                item,
-                                style:
-                                const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight:
-                                  FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                                overflow: TextOverflow
-                                    .ellipsis,
-                              ),
-                            ))
+                        items: cubit.items
+                            .map((String item) => DropdownMenuItem<String>(
+                                  value: item,
+                                  child: Text(
+                                    item,
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ))
                             .toList(),
                         value: cubit.selectedValue,
                         onChanged: (String? value) {
@@ -96,11 +78,9 @@ class Filter extends StatelessWidget {
                         buttonStyleData: ButtonStyleData(
                           height: 50,
                           width: double.infinity,
-                          padding: const EdgeInsets.only(
-                              left: 14, right: 14),
+                          padding: const EdgeInsets.only(left: 14, right: 14),
                           decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(14),
                             border: Border.all(
                               color: Colors.black26,
                             ),
@@ -119,33 +99,24 @@ class Filter extends StatelessWidget {
                           iconEnabledColor: myDEDEDEColor,
                           iconDisabledColor: Colors.grey,
                         ),
-                        dropdownStyleData:
-                        DropdownStyleData(
+                        dropdownStyleData: DropdownStyleData(
                           maxHeight: 200,
                           width: 300,
                           decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(14),
                             color: myBlackColor,
                           ),
                           offset: const Offset(-20, 0),
-                          scrollbarTheme:
-                          ScrollbarThemeData(
-                            radius:
-                            const Radius.circular(40),
-                            thickness:
-                            MaterialStateProperty.all<
-                                double>(6),
+                          scrollbarTheme: ScrollbarThemeData(
+                            radius: const Radius.circular(40),
+                            thickness: MaterialStateProperty.all<double>(6),
                             thumbVisibility:
-                            MaterialStateProperty.all<
-                                bool>(true),
+                                MaterialStateProperty.all<bool>(true),
                           ),
                         ),
-                        menuItemStyleData:
-                        const MenuItemStyleData(
+                        menuItemStyleData: const MenuItemStyleData(
                           height: 40,
-                          padding: EdgeInsets.only(
-                              left: 14, right: 14),
+                          padding: EdgeInsets.only(left: 14, right: 14),
                         ),
                       ),
                     ),
@@ -153,12 +124,10 @@ class Filter extends StatelessWidget {
                 ),
                 Text(
                   'المدينة',
-                  style: Styles.textStyle16
-                      .copyWith(color: myColor),
+                  style: Styles.textStyle16.copyWith(color: myColor),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Center(
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton2<String>(
@@ -169,31 +138,25 @@ class Filter extends StatelessWidget {
                               child: Text(
                                 cubit.selectedValue ?? '',
                                 style: Styles.textStyle16
-                                    .copyWith(
-                                    color:
-                                    myDEDEDEColor),
-                                overflow:
-                                TextOverflow.ellipsis,
+                                    .copyWith(color: myDEDEDEColor),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
                         ),
-                        items: cubit.items.map((String item) =>
-                            DropdownMenuItem<String>(
-                              value: item,
-                              child: Text(
-                                item,
-                                style:
-                                const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight:
-                                  FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                                overflow: TextOverflow
-                                    .ellipsis,
-                              ),
-                            ))
+                        items: cubit.items
+                            .map((String item) => DropdownMenuItem<String>(
+                                  value: item,
+                                  child: Text(
+                                    item,
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ))
                             .toList(),
                         value: cubit.selectedValue,
                         onChanged: (String? value) {
@@ -204,11 +167,9 @@ class Filter extends StatelessWidget {
                         buttonStyleData: ButtonStyleData(
                           height: 50,
                           width: double.infinity,
-                          padding: const EdgeInsets.only(
-                              left: 14, right: 14),
+                          padding: const EdgeInsets.only(left: 14, right: 14),
                           decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(14),
                             border: Border.all(
                               color: Colors.black26,
                             ),
@@ -227,33 +188,24 @@ class Filter extends StatelessWidget {
                           iconEnabledColor: myDEDEDEColor,
                           iconDisabledColor: Colors.grey,
                         ),
-                        dropdownStyleData:
-                        DropdownStyleData(
+                        dropdownStyleData: DropdownStyleData(
                           maxHeight: 200,
                           width: 300,
                           decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(14),
                             color: Colors.grey,
                           ),
                           offset: const Offset(-20, 0),
-                          scrollbarTheme:
-                          ScrollbarThemeData(
-                            radius:
-                            const Radius.circular(40),
-                            thickness:
-                            MaterialStateProperty.all<
-                                double>(6),
+                          scrollbarTheme: ScrollbarThemeData(
+                            radius: const Radius.circular(40),
+                            thickness: MaterialStateProperty.all<double>(6),
                             thumbVisibility:
-                            MaterialStateProperty.all<
-                                bool>(true),
+                                MaterialStateProperty.all<bool>(true),
                           ),
                         ),
-                        menuItemStyleData:
-                        const MenuItemStyleData(
+                        menuItemStyleData: const MenuItemStyleData(
                           height: 40,
-                          padding: EdgeInsets.only(
-                              left: 14, right: 14),
+                          padding: EdgeInsets.only(left: 14, right: 14),
                         ),
                       ),
                     ),
@@ -261,12 +213,10 @@ class Filter extends StatelessWidget {
                 ),
                 Text(
                   'المدينة',
-                  style: Styles.textStyle16
-                      .copyWith(color: myColor),
+                  style: Styles.textStyle16.copyWith(color: myColor),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Center(
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton2<String>(
@@ -277,31 +227,25 @@ class Filter extends StatelessWidget {
                               child: Text(
                                 cubit.selectedValue ?? '',
                                 style: Styles.textStyle16
-                                    .copyWith(
-                                    color:
-                                    myDEDEDEColor),
-                                overflow:
-                                TextOverflow.ellipsis,
+                                    .copyWith(color: myDEDEDEColor),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
                         ),
-                        items: cubit.items.map((String item) =>
-                            DropdownMenuItem<String>(
-                              value: item,
-                              child: Text(
-                                item,
-                                style:
-                                const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight:
-                                  FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                                overflow: TextOverflow
-                                    .ellipsis,
-                              ),
-                            ))
+                        items: cubit.items
+                            .map((String item) => DropdownMenuItem<String>(
+                                  value: item,
+                                  child: Text(
+                                    item,
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ))
                             .toList(),
                         value: cubit.selectedValue,
                         onChanged: (String? value) {
@@ -312,11 +256,9 @@ class Filter extends StatelessWidget {
                         buttonStyleData: ButtonStyleData(
                           height: 50,
                           width: double.infinity,
-                          padding: const EdgeInsets.only(
-                              left: 14, right: 14),
+                          padding: const EdgeInsets.only(left: 14, right: 14),
                           decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(14),
                             border: Border.all(
                               color: Colors.black26,
                             ),
@@ -335,33 +277,24 @@ class Filter extends StatelessWidget {
                           iconEnabledColor: myDEDEDEColor,
                           iconDisabledColor: Colors.grey,
                         ),
-                        dropdownStyleData:
-                        DropdownStyleData(
+                        dropdownStyleData: DropdownStyleData(
                           maxHeight: 200,
                           width: 300,
                           decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(14),
                             color: Colors.grey,
                           ),
                           offset: const Offset(-20, 0),
-                          scrollbarTheme:
-                          ScrollbarThemeData(
-                            radius:
-                            const Radius.circular(40),
-                            thickness:
-                            MaterialStateProperty.all<
-                                double>(6),
+                          scrollbarTheme: ScrollbarThemeData(
+                            radius: const Radius.circular(40),
+                            thickness: MaterialStateProperty.all<double>(6),
                             thumbVisibility:
-                            MaterialStateProperty.all<
-                                bool>(true),
+                                MaterialStateProperty.all<bool>(true),
                           ),
                         ),
-                        menuItemStyleData:
-                        const MenuItemStyleData(
+                        menuItemStyleData: const MenuItemStyleData(
                           height: 40,
-                          padding: EdgeInsets.only(
-                              left: 14, right: 14),
+                          padding: EdgeInsets.only(left: 14, right: 14),
                         ),
                       ),
                     ),
@@ -369,12 +302,10 @@ class Filter extends StatelessWidget {
                 ),
                 Text(
                   'المدينة',
-                  style: Styles.textStyle16
-                      .copyWith(color: myColor),
+                  style: Styles.textStyle16.copyWith(color: myColor),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Center(
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton2<String>(
@@ -385,31 +316,25 @@ class Filter extends StatelessWidget {
                               child: Text(
                                 cubit.selectedValue ?? '',
                                 style: Styles.textStyle16
-                                    .copyWith(
-                                    color:
-                                    myDEDEDEColor),
-                                overflow:
-                                TextOverflow.ellipsis,
+                                    .copyWith(color: myDEDEDEColor),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
                         ),
-                        items: cubit.items.map((String item) =>
-                            DropdownMenuItem<String>(
-                              value: item,
-                              child: Text(
-                                item,
-                                style:
-                                const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight:
-                                  FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                                overflow: TextOverflow
-                                    .ellipsis,
-                              ),
-                            ))
+                        items: cubit.items
+                            .map((String item) => DropdownMenuItem<String>(
+                                  value: item,
+                                  child: Text(
+                                    item,
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ))
                             .toList(),
                         value: cubit.selectedValue,
                         onChanged: (String? value) {
@@ -420,11 +345,9 @@ class Filter extends StatelessWidget {
                         buttonStyleData: ButtonStyleData(
                           height: 50,
                           width: double.infinity,
-                          padding: const EdgeInsets.only(
-                              left: 14, right: 14),
+                          padding: const EdgeInsets.only(left: 14, right: 14),
                           decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(14),
                             border: Border.all(
                               color: Colors.black26,
                             ),
@@ -443,33 +366,24 @@ class Filter extends StatelessWidget {
                           iconEnabledColor: myDEDEDEColor,
                           iconDisabledColor: Colors.grey,
                         ),
-                        dropdownStyleData:
-                        DropdownStyleData(
+                        dropdownStyleData: DropdownStyleData(
                           maxHeight: 200,
                           width: 300,
                           decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(14),
                             color: Colors.grey,
                           ),
                           offset: const Offset(-20, 0),
-                          scrollbarTheme:
-                          ScrollbarThemeData(
-                            radius:
-                            const Radius.circular(40),
-                            thickness:
-                            MaterialStateProperty.all<
-                                double>(6),
+                          scrollbarTheme: ScrollbarThemeData(
+                            radius: const Radius.circular(40),
+                            thickness: MaterialStateProperty.all<double>(6),
                             thumbVisibility:
-                            MaterialStateProperty.all<
-                                bool>(true),
+                                MaterialStateProperty.all<bool>(true),
                           ),
                         ),
-                        menuItemStyleData:
-                        const MenuItemStyleData(
+                        menuItemStyleData: const MenuItemStyleData(
                           height: 40,
-                          padding: EdgeInsets.only(
-                              left: 14, right: 14),
+                          padding: EdgeInsets.only(left: 14, right: 14),
                         ),
                       ),
                     ),
@@ -478,12 +392,14 @@ class Filter extends StatelessWidget {
                 const SizedBox(height: 15),
                 Text(
                   'نوع الامر',
-                  style: Styles.textStyle16
-                      .copyWith(color: myColor),
+                  style: Styles.textStyle16.copyWith(color: myColor),
                 ),
-                const SizedBox(height:20),
+                const SizedBox(height: 20),
                 ListTile(
-                  title:  Text('أوامر التنفيذ الحرفي',style: Styles.textStyle14,),
+                  title: Text(
+                    'أوامر التنفيذ الحرفي',
+                    style: Styles.textStyle14,
+                  ),
                   leading: Radio<SingingCharacter>(
                     value: SingingCharacter.lafayette,
                     groupValue: _character,
@@ -497,7 +413,10 @@ class Filter extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  title: Text('أوامر التنفيذ الحرفي',style: Styles.textStyle14,),
+                  title: Text(
+                    'أوامر التنفيذ الحرفي',
+                    style: Styles.textStyle14,
+                  ),
                   leading: Radio<SingingCharacter>(
                     value: SingingCharacter.jefferson,
                     groupValue: _character,
@@ -509,7 +428,10 @@ class Filter extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  title:  Text('أوامر التنفيذ الحرفي',style: Styles.textStyle14,),
+                  title: Text(
+                    'أوامر التنفيذ الحرفي',
+                    style: Styles.textStyle14,
+                  ),
                   leading: Radio<SingingCharacter>(
                     value: SingingCharacter.lafayette,
                     groupValue: _character,
@@ -523,7 +445,10 @@ class Filter extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  title:  Text('أوامر التنفيذ الحرفي',style: Styles.textStyle14,),
+                  title: Text(
+                    'أوامر التنفيذ الحرفي',
+                    style: Styles.textStyle14,
+                  ),
                   leading: Radio<SingingCharacter>(
                     value: SingingCharacter.lafayette,
                     groupValue: _character,
@@ -538,12 +463,14 @@ class Filter extends StatelessWidget {
                 ),
                 Text(
                   'نوع الامر',
-                  style: Styles.textStyle16
-                      .copyWith(color: myColor),
+                  style: Styles.textStyle16.copyWith(color: myColor),
                 ),
-                const SizedBox(height:20),
+                const SizedBox(height: 20),
                 ListTile(
-                  title:  Text('أوامر التنفيذ الحرفي',style: Styles.textStyle14,),
+                  title: Text(
+                    'أوامر التنفيذ الحرفي',
+                    style: Styles.textStyle14,
+                  ),
                   leading: Radio<SingingCharacter>(
                     value: SingingCharacter.lafayette,
                     groupValue: _character,
@@ -557,7 +484,10 @@ class Filter extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  title: Text('أوامر التنفيذ الحرفي',style: Styles.textStyle14,),
+                  title: Text(
+                    'أوامر التنفيذ الحرفي',
+                    style: Styles.textStyle14,
+                  ),
                   leading: Radio<SingingCharacter>(
                     value: SingingCharacter.jefferson,
                     groupValue: _character,
@@ -570,12 +500,14 @@ class Filter extends StatelessWidget {
                 ),
                 Text(
                   'نوع الامر',
-                  style: Styles.textStyle16
-                      .copyWith(color: myColor),
+                  style: Styles.textStyle16.copyWith(color: myColor),
                 ),
-                const SizedBox(height:20),
+                const SizedBox(height: 20),
                 ListTile(
-                  title:  Text('أوامر التنفيذ الحرفي',style: Styles.textStyle14,),
+                  title: Text(
+                    'أوامر التنفيذ الحرفي',
+                    style: Styles.textStyle14,
+                  ),
                   leading: Radio<SingingCharacter>(
                     value: SingingCharacter.lafayette,
                     groupValue: _character,
@@ -589,7 +521,10 @@ class Filter extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  title: Text('أوامر التنفيذ الحرفي',style: Styles.textStyle14,),
+                  title: Text(
+                    'أوامر التنفيذ الحرفي',
+                    style: Styles.textStyle14,
+                  ),
                   leading: Radio<SingingCharacter>(
                     value: SingingCharacter.jefferson,
                     groupValue: _character,
@@ -602,8 +537,7 @@ class Filter extends StatelessWidget {
                 ),
                 Text(
                   'نوع الامر',
-                  style: Styles.textStyle16
-                      .copyWith(color: myColor),
+                  style: Styles.textStyle16.copyWith(color: myColor),
                 ),
                 SliderTheme(
                   data: SliderThemeData(
@@ -615,17 +549,14 @@ class Filter extends StatelessWidget {
                       values: cubit.selectedRange,
                       min: 25.00,
                       max: 10000.00,
-                      labels: RangeLabels(cubit.selectedRange.start.toString(),cubit.selectedRange.end.toString()),
-                      onChanged: (RangeValues values){
+                      labels: RangeLabels(cubit.selectedRange.start.toString(),
+                          cubit.selectedRange.end.toString()),
+                      onChanged: (RangeValues values) {
                         // setState({
                         //   selectedRange = values;
                         // });
-                      }
-                  ),
+                      }),
                 ),
-
-
-
               ],
             ),
           ),

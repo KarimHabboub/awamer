@@ -43,17 +43,20 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        supportedLocales: [
+        supportedLocales: const [
           Locale("ar"),
         ],
-        localizationsDelegates: [
+        localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        locale: Locale("ar"),
+        locale: const Locale("ar"),
         theme: ThemeData(
-            appBarTheme: AppBarTheme(
+            colorSchemeSeed: Colors.white,
+
+            useMaterial3: true,
+            appBarTheme: const AppBarTheme(
                 backgroundColor: Colors.white,
                 elevation: 1.2,
                 shadowColor: Colors.grey,
