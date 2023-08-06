@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import '../../shared/style/colors.dart';
 import 'on_bording.dart';
 
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -27,14 +26,14 @@ class _SplashScreenState extends State<SplashScreen> {
       );
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
-      SystemUiOverlay.bottom
-    ]);
-    return Scaffold(
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: [SystemUiOverlay.bottom]);
+    return const Scaffold(
       backgroundColor: myBackgroundColor,
-      body: const Stack(
+      body: Stack(
         children: [
           Image(
             image: AssetImage("assets/login/Group 1547.png"),
@@ -45,14 +44,12 @@ class _SplashScreenState extends State<SplashScreen> {
           Center(
             child: Image(
               image: AssetImage("assets/login/logo.png"),
-
             ),
           ),
           Align(
             alignment: Alignment.bottomRight,
             child: Image(
               image: AssetImage("assets/login/graphic image.png"),
-
             ),
           ),
         ],

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../style/colors.dart';
 import '../style/styles.dart';
 
-AppBar myAppBar({required BuildContext context, required String title}) {
+AppBar myAppBar({required BuildContext context, required String title ,num width = 1.5}) {
   return AppBar(
     automaticallyImplyLeading: false,
     shadowColor: Colors.grey,
@@ -19,7 +19,7 @@ AppBar myAppBar({required BuildContext context, required String title}) {
           },
         ),
         SizedBox(
-          width: MediaQuery.of(context).size.width / 2,
+          width: MediaQuery.of(context).size.width /width,
           child: Text(
             title,
             textAlign: TextAlign.center,
@@ -29,6 +29,31 @@ AppBar myAppBar({required BuildContext context, required String title}) {
       ],
     ),
   );
+}
+Widget myCustomAppBar({required BuildContext context, required String title}) {
+  return Row(
+      children: [
+        IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            size: 21,
+            color: Colors.black,
+          ), // أيقونة مخصصة للـ "pop"
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        SizedBox(
+          width: MediaQuery.of(context).size.width /1.5,
+          child: Text(
+            title,
+            textAlign: TextAlign.center,
+            style: Styles.textStyle16,
+          ),
+        ),
+      ],
+    );
+
 }
 
 Future<dynamic> myDialog(
@@ -218,7 +243,7 @@ class MyTextFormField extends StatelessWidget {
           borderSide: BorderSide(color: myCFCFCFColor, width: 2.0),
         ),
         focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: myCFCFCFColor, width: 5.0),
+          borderSide: const BorderSide(color: myCFCFCFColor, width: 5.0),
           // لون الحدود عند الضغط
           borderRadius: BorderRadius.circular(12.0),
         ),
