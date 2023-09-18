@@ -22,7 +22,7 @@ class MyBottomNavBar extends StatelessWidget {
       color: myBlackColor,
       buttonBackgroundColor: myBlackColor,
       backgroundColor: Colors.transparent,
-      // with is Scaffold--> extendBody: true,
+      // with in Scaffold--> extendBody: true,
       items: [
         CurvedNavigationBarItem(
             child: Icon(
